@@ -11,7 +11,7 @@ All the same as add-apt-repository/apt-add-repository(in package:[software-prope
 Will do `apt-get update` **for the ppa repository** after added the repository. So that we don't need to do `apt-get udpate`, and can **save time and resource** because it will **only update info about the just added ppa repository**.
 
 ## Demo
-![demo.gif](demo.gif)
+[![demo.gif](demo.gif)](https://asciinema.org/a/21342)
 
 ## Author
 [Peter Dave Hello](https://www.peterdavehello.org/), [@Twitter](https://twitter.com/PeterDaveHello), [@GitHub](https://github.com/PeterDaveHello)
