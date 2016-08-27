@@ -8,15 +8,15 @@ do
     fi
 done
 
-if [ -z $ppa ];then
+if [ -z "$ppa" ];then
     >&2 echo "Error: need a repository as argument"
     exit 1
 fi
 
-apt-add-repository $@
+apt-add-repository "$@"
 
 if [ $? = "0" ]; then
     repo="$(echo $ppa | awk -F'ppa:' '{print $2}' | sed 's/\//-/g')"
-    file=$(ls /etc/apt/sources.list.d/$repo*.list)
+    file=$(ls "/etc/apt/sources.list.d/$repo"*.list)
     apt-get update -o Dir::Etc::sourcelist="$file" -o Dir::Etc::sourceparts="-" -o APT::Get::List-Cleanup="0"
 fi
