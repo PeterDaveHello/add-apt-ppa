@@ -1,4 +1,4 @@
-# add-apt-ppa
+# add-apt-ppa [![Build Status](https://travis-ci.org/PeterDaveHello/add-apt-ppa.svg?branch=master)](https://travis-ci.org/PeterDaveHello/add-apt-ppa)
 Fetch the only corresponding apt package list immediately after added ppa repo.
 
 ## Installation
