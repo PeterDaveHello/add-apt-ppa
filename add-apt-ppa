@@ -18,8 +18,13 @@ if [ -z "${ppa}" ];then
     exit 1
 fi
 
+APT_COMMAND="apt-get"
+if type apt &> /dev/null; then
+    APT_COMMAND="apt"
+fi
+
 if apt-add-repository "$@"; then
     repo="$(echo "${ppa}" | awk -F'ppa:' '{print $2}' | sed 's/\//-/g')"
     file="$(ls "/etc/apt/sources.list.d/${repo}"*.list)"
-    apt-get update -o Dir::Etc::sourcelist="$file" -o Dir::Etc::sourceparts="-" -o APT::Get::List-Cleanup="0"
+    $APT_COMMAND update -o Dir::Etc::sourcelist="$file" -o Dir::Etc::sourceparts="-" -o APT::Get::List-Cleanup="0"
 fi
