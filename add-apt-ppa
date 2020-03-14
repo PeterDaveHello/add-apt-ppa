@@ -1,20 +1,19 @@
 #!/usr/bin/env bash
 
 if ! type apt-add-repository &> /dev/null; then
-    >&2 echo "apt-add-repository: command not found, try to install package - software-properties-common first!"
+    echo >&2 "apt-add-repository: command not found, try to install package - software-properties-common first!"
     exit 1
 fi
 
-for para in "$@"
-do
-    if [[ "${para}" = "ppa:"* ]];then
+for para in "$@"; do
+    if [[ "${para}" = "ppa:"* ]]; then
         ppa="${para}"
         break
     fi
 done
 
-if [ -z "${ppa}" ];then
-    >&2 echo "Error: need a repository as argument"
+if [ -z "${ppa}" ]; then
+    echo >&2 "Error: need a repository as argument"
     exit 1
 fi
 
