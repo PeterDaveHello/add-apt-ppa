@@ -3,21 +3,9 @@ dist: trusty
 sudo: required
 git:
   depth: 5
-addons:
-  apt:
-    packages:
-      - cabal-install
-      - ghc
-env:
-  - PATH="$PATH:~/.cabal/bin/"
-cache:
-  directories:
-    - $HOME/.ghc
-    - $HOME/.cabal
 before_install:
   - bash --version
-install:
-  - cabal update && cabal install ShellCheck && shellcheck --version
+  - shellcheck --version
 script:
   - bash -n add-apt-ppa
   - shellcheck -s bash add-apt-ppa
